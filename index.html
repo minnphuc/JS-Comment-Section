@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <title>Frontend Mentor | Interactive comments section</title>
+  
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  
+  <div class="greeting"><img src="images/avatars/image-juliusomo.png" class="avatar"> Hello, juliusomo</div>
+
+  <div class="filter hidden"></div>
+
+  <div class="modal hidden">
+    <p class="title">Delete comment</p>
+    <p class="message"> Are you sure you want to delete this comment? This will remove the comment and can't be undone.</p>
+    <p class="option">
+      <button class="cancel">NO, CANCEL</button>
+      <button class="del">YES, DELETE</button>
+    </p>
+  </div>
+
+  <div class="post">
+
+    <div class="info" style="align-self: flex-start;padding: 0.9rem 1rem;">
+      <div class="avatar" style="border-radius: 50%; overflow: hidden;"><img src="./images/avatars/dlwlrma.jpg" style="object-fit: cover;width: 100%;height: 100%;"></div>
+      <p class="name" style="cursor: pointer;">dlwlrma</p>
+      <i class="material-icons" style="margin-left: 33.5rem;cursor: pointer;">more_horiz</i>
+    </div>
+
+    <img src="images/img-1.jpg">
+    <div class="icons">
+      <i class="material-icons">favorite</i>
+      <i class="material-icons" style="margin-left: 2rem">comment</i>
+      <i class="material-icons" style="margin-left: 35rem">share</i>
+
+      <!-- <div>
+
+        <div class="pop-up bottom hidden">
+          <span>SHARE</span>
+          <img src="images/icon-facebook.svg">   
+          <img src="images/icon-twitter.svg">   
+          <img src="images/icon-pinterest.svg">   
+        </div> -->
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <div class="comment_section">
+
+    <!-- <div class="comment">
+
+       Comment
+      <div class="vote">
+        <p class="upvote">+</p>
+        <p class="num_vote">12</p>
+        <p class="downvote">-</p>
+      </div>
+
+      <div class="comment_content">
+        <div class="info">
+          <div class="avatar"><img src="./images/avatars/image-amyrobson.png"></div>
+          <p class="name">amyrobson</p>
+          <p class="date">1 month ago</p>
+          <p style="cursor: pointer;position: absolute;right: 2rem;" class="reply_btn"><img src="images/icon-reply.svg"> Reply</p>
+        </div>
+  
+        <div class="content">
+          Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.
+        </div>
+      </div>
+    </div>
+
+       Reply Comment
+      <div class="reply_comment">
+
+        <div class="vote">
+          <p class="upvote">+</p>
+          <p class="num_vote">4</p>
+          <p class="downvote">-</p>
+        </div>
+  
+        <div class="comment_content">
+          <div class="info_reply">
+            <div class="avatar"><img src="./images/avatars/image-ramsesmiron.png"></div>
+            <p class="name">ramsesmiron</p>
+            <p class="date">1 week ago</p>
+            <p class="reply_btn"><img src="images/icon-reply.svg"> Reply</p>
+          </div>
+    
+          <div class="content">
+            <span class="reply_name">@maxblagun</span> If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.          </div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+    
+
+  <!-- Your Comment -->
+  <div class="input_comment" style="display: none;">
+    <div class="avatar" style="align-self: flex-start;"><img src="./images/avatars/image-juliusomo.png"></div>
+    <textarea class="comment_box" name="comment" rows="4" cols="50" placeholder="Add a comment..."></textarea>
+    <button class="send_btn">SEND</button>
+  </div>
+  
+</body>
+
+</html>
