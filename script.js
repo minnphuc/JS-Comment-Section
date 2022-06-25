@@ -49,20 +49,16 @@ class ReplyComment extends Comment {
 
 class App {
   #comments = [];
-  #allDOMComment;
+  #allDOMComment = document.getElementsByClassName("comment");
   #deletedComment;
 
   //! **INITIAL**
-  constructor() {
+  constructor(commentData) {
     //? Add comment data from JSON
-    this.#comments.push(comment1);
-    this.#comments.push(comment2);
-    this.#comments.push(comment3);
+    commentData.forEach(comment => this.#comments.push(comment));
 
     //? Load exist comment
     this._loadComment();
-
-    this.#allDOMComment = document.querySelectorAll(".comment");
     this._loadReply();
 
     //? Adding event listener
@@ -331,8 +327,8 @@ class App {
     const editBox = updateBtn.previousElementSibling;
 
     const updatedComm = editBox.value;
-    const comment = updatedComm.slice(updatedComm.indexOf(" "));
     const tagName = updatedComm.split(" ")[0];
+    const comment = updatedComm.slice(updatedComm.indexOf(" "));
 
     //? Update Comment HTML
     const html = updateBtn.closest(".comment")
@@ -347,16 +343,14 @@ class App {
 
 //! GET/CREATE COMMENT DATA
 
-let comment1, comment2, comment3;
-
-const getCommentData = async function () {
+const fetchCommentData = async function () {
   const res = await fetch("data.json");
   const data = await res.json();
   return data.comments;
 };
 
-const createCommentData = async function () {
-  const commentData = await getCommentData();
+const generateCommentData = async function () {
+  const commentData = await fetchCommentData();
 
   const commentObj = commentData.map(comment => {
     const content = comment.content;
@@ -369,10 +363,8 @@ const createCommentData = async function () {
     return new Comment(content, createdAt, score, username, image, replies);
   });
 
-  [comment1, comment2, comment3] = commentObj;
-
   //todo INITIAL APPLICATION AFTER RETRIEVE DATA FROM JSON FILE
-  const app = new App();
+  const app = new App(commentObj);
 };
 
-createCommentData();
+generateCommentData();
